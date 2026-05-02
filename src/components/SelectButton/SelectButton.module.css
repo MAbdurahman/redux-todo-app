@@ -1,3 +1,4 @@
+/*
 
 select,
 ::picker(select) {
@@ -130,4 +131,15 @@ option::checkmark {
       padding: 1rem 0;
       z-index: 1;
    }
+}*/
+
+/*noinspection ALL*/
+.buttonSelect {
+   color: var(--color-neutral-600);
+   font-family: var(--font-body);
+   padding: 1rem;
+   border: none;
+   background-color: var(--color-neutral-300);
+   width: 150px;
+   cursor: pointer;
 }

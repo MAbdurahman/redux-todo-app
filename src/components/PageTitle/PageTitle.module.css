@@ -1,0 +1,22 @@
+
+/*noinspection ALL*/
+.title {
+   width: 100%;
+   display: inline-block;
+   margin: 0 auto;
+   margin-top: 2.5rem;
+   margin-bottom: 1.5rem;
+   font-family: var(--font-body);
+   font-size: 4rem;
+   font-weight: var(--font-weight-black);
+   text-transform: capitalize;
+   text-align: center;
+   color: var(--color-augmented-700);
+
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+   .title {
+      font-size: 3rem;
+   }
+}

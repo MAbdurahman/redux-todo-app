@@ -1,27 +1,17 @@
+import Select from 'react-select/base';
 import styles from './SelectButton.module.css'
 
-export default function SelectButton() {
+export default function SelectButton({ children, id, ...rest }) {
+
+   const customStyles = {
+      control: (provided) => ({...provided, position: 'relative', width: '150px', borderRadius: '5px', boxShadow: 'none', textAlign: 'left'}),
+      options: (provided) => ({...provided, color: state.isSelected ? 'white' : 'black',
+      backgroundColor: state.isSelected ? 'black' : 'white'})
+   }
 
    return (
-      <form>
-         <p>
-            {/*<label htmlFor="pet-select">Filter Todos:</label>*/}
-            <select id="pet-select">
-               <button>
-                  <selectedcontent></selectedcontent>
-               </button>
-               <option value="cat">
-        <span className="option-label">All Todos</span>
-               </option>
-               <option value="dog">
-        <span className="option-label">Completed</span>
-               </option>
-               <option value="hamster">
-        <span className="option-label">Incomplete</span>
-               </option>
-            </select>
-         </p>
-      </form>
-
+    <Select options={options} style={customStyles} id={id} {...rest}>
+       {children}
+    </Select>
    );
 }
