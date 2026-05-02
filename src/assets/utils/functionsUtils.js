@@ -315,12 +315,3 @@ export function titleize(str) {
 export function removeHTMLTags(str) {
    return makeString(str).replace(/<\/?[^>]+>/g, '');
 }
-
-/**
- * description -
- * @param classes
- * @returns {*}
- */
-export function getClasses(classes) {
-   return classes.filter(item => item !== '').join(' ').trim();
-}

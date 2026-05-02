@@ -8,7 +8,10 @@ export default function App() {
    return (
       <div className='container'>
          <PageTitle>ToDo App</PageTitle>
-         <Header />
+         <section className='appWrapper'>
+            <Header/>
+
+         </section>
       </div>
 
    );

@@ -1,22 +1,33 @@
+
+
 .button {
    display: inline-block;
    height: auto;
    padding: 0.8rem 2rem;
    border: none;
-   border-radius: 6px;
-   font-weight: 500;
+   border-radius: 5px;
+   font-weight: 800;
    font-size: 1.6rem;
    text-decoration: none;
    text-transform: capitalize;
    cursor: pointer;
    overflow: hidden;
-}
 
-.buttonPrimary {
+}
+.primary {
    background-color: var(--color-neutral-600);
    color: var(--color-neutral-000);
+   transition: background-color 0.2s ease-in-out;
 }
-.buttonSecondary {
+.primary:hover {
+   background-color: var(--color-neutral-700);
+}
+
+.secondary {
    background-color: var(--color-neutral-300);
    color: var(--color-neutral-800);
+   transition: background-color 0.2s ease-in-out;
+}
+.secondary:hover {
+   background-color: var(--color-neutral-500);
 }

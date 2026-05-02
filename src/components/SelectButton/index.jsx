@@ -10,7 +10,7 @@ export default function SelectButton({ children, id, ...rest }) {
    }
 
    return (
-    <Select options={options} style={customStyles} id={id} {...rest}>
+    <Select options={customStyles.options} style={customStyles.control} id={id} {...rest}>
        {children}
     </Select>
    );
