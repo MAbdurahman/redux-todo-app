@@ -21,6 +21,7 @@
   outline: none;
 }
 :root {
+  /************************* fonts *************************/
   --font-body: 'Mulish', sans-serif;
 
   /************************* fluid body text *************************/
@@ -113,11 +114,7 @@
   --color-semantic-alert-200: hsl(0, 96%, 43%);
   --color-semantic-alert-100: hsl(0, 96%, 48%);
 
-  --toastify-color-error: hsl(0, 96%, 33%);
-  --toastify-font-family: 'Mulish', sans-serif;
-  --toastify-z-index: 10000;
-
-
+  /**************** timing functions ****************/
   --ease-basic-01: cubic-bezier(0.26, 0.1, 0.27, 1.55);
   --ease-basic-02: cubic-bezier(0.17, 0.67, 0.83, 0.67);
   --ease: cubic-bezier(0.19, 0.08, 0.46, 0.99);
@@ -131,6 +128,7 @@
   --ease-snappy-01: cubic-bezier(0.5, 0, 0.4, 0.98);
   --ease-snappy-02: cubic-bezier(.17, .67, .83, .67);
 
+  /**************** radius ****************/
   --radius-000: 1px;
   --radius-100: 2px;
   --radius-200: 3px;
@@ -142,6 +140,7 @@
   --radius-800: 55px;
   --radius-900: 50%;
 
+  /**************** breakpoints ****************/
   --breakpoint-xxs: 20rem; /*320px */
   --breakpoint-xs: 30rem; /*480px */
   --breakpoint-sm: 40rem; /*640px */
@@ -151,16 +150,22 @@
   --breakpoint-2xl: 96rem; /*1536px;*/
   --breakpoint-3xl: 120rem; /*1920px;*/
 
-
   /**************** letter spacing ****************/
   --letter-spacing-100: 1px;
   --letter-spacing-200: 2px;
   --letter-spacing-300: 3px;
-  --letter-spacing-400: 5px;
+  --letter-spacing-400: 4px;
+  --letter-spacing-500: 5px;
   --letter-spacing-minus-100: -1px;
   --letter-spacing-minus-200: -2px;
   --letter-spacing-minus-300: -3px;
-  --letter-spacing-minus-400: -5px;
+  --letter-spacing-minus-400: -4px;
+  --letter-spacing-minus-500: -5px;
+
+  /**************** toastify overrides ****************/
+  --toastify-color-error: hsl(0, 96%, 33%);
+  --toastify-font-family: 'Mulish', sans-serif;
+  --toastify-z-index: 10000;
 }
 
 html {
