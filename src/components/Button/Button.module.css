@@ -16,7 +16,7 @@
 }
 .primary {
    background-color: var(--color-neutral-600);
-   color: var(--color-neutral-000);
+   color: var(--color-neutral-100);
    transition: background-color 0.2s ease-in-out;
 }
 .primary:hover {

@@ -1,17 +1,57 @@
-import Select from 'react-select/base';
-import styles from './SelectButton.module.css'
+import Select from 'react-select';
 
-export default function SelectButton({ children, id, ...rest }) {
+export default function SelectButton({children, id, ...rest}) {
+
+   const options = [
+      {value: 'all', label: 'All ToDos'},
+      {value: 'completed', label: 'Completed'},
+      {value: 'incomplete', label: 'Incomplete'}
+   ];
 
    const customStyles = {
-      control: (provided) => ({...provided, position: 'relative', width: '150px', borderRadius: '5px', boxShadow: 'none', textAlign: 'left'}),
-      options: (provided) => ({...provided, color: state.isSelected ? 'white' : 'black',
-      backgroundColor: state.isSelected ? 'black' : 'white'})
-   }
+      control: (provided, state) => ({
+         ...provided,
+         position: 'relative',
+         width: '144px',
+         textAlign: 'left',
+         fontSize: '1.6rem',
+         fontWeight: 800,
+         cursor: 'pointer',
+         backgroundColor: '#7a7a7a',
+         borderRadius: '5px',
+         border: 'none',
+         boxShadow: 'none'
+      }),
+      option: (provided, state) => ({
+         ...provided,
+         backgroundColor: state.isFocused ? '#7a7a7a' : '#949494',
+         textAlign: 'left',
+         fontSize: '1.6rem',
+         fontWeight: 800,
+         border: '1px solid #fafafa',
+         borderRadius: '5px',
+         cursor: 'pointer'
+      }),
+      menu: (provided) => ({
+         ...provided,
+         zIndex: 100,
+         padding: 0,
+      }),
+      menuList: base => ({
+         ...base,
+         // kill the white space on first and last option
+         padding: 0
+      })
+
+   };
 
    return (
-    <Select options={customStyles.options} style={customStyles.control} id={id} {...rest}>
-       {children}
-    </Select>
+      <Select  classNames={{
+         option: ({ isFocused, isSelected }) =>
+            isFocused ? 'option--focused' :
+               isSelected ? 'option--selected' : ''
+      }} defaultValue={options[0]} options={options} styles={customStyles} id={id} {...rest} >
+         {children}
+      </Select>
    );
 }

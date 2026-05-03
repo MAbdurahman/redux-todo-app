@@ -11,7 +11,7 @@ export default function Header() {
             Add ToDo
          </Button>
          <SelectButton>
-            <option value='all'>All ToDos</option>
+            <option value='all' >All ToDos</option>
             <option value='completed'>Completed</option>
             <option value='incomplete'>Incomplete</option>
          </SelectButton>

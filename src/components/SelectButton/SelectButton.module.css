@@ -134,12 +134,13 @@ option::checkmark {
 }*/
 
 /*noinspection ALL*/
+/*
 .buttonSelect {
    color: var(--color-neutral-600);
    font-family: var(--font-body);
-   padding: 1rem;
+   !*padding: 1rem;*!
    border: none;
    background-color: var(--color-neutral-300);
-   width: 150px;
+   !*width: 150px;*!
    cursor: pointer;
-}
+}*/

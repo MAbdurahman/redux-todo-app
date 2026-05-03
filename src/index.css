@@ -67,12 +67,18 @@
   --color-neutral-001: #fafafa;
   --color-neutral-000: hsl(196, 0%, 98%);
   --color-neutral-100: hsl(196, 0%, 88%);
+  --color-neutral-101: #e0e0e0;
   --color-neutral-200: hsl(196, 0%, 78%);
   --color-neutral-300: hsl(196, 0%, 68%);
   --color-neutral-400: hsl(196, 0%, 58%);
+  --color-neutral-402: #949494;
   --color-neutral-500: hsl(196, 0%, 48%);
+  --color-neutral-502: #7a7a7a;
   --color-neutral-600: hsl(196, 0%, 38%);
+  --color-neutral-602: #616161;
   --color-neutral-700: hsl(196, 0%, 28%);
+  --color-neutral-702: #474747;
+  --color-neutral-802: #2e2e2e;
   --color-neutral-800: hsl(196, 0%, 18%);
   --color-neutral-900: hsl(196, 0%, 10%);
   /* augmented colors */
@@ -260,7 +266,7 @@ small {
 
 
 /*===============================================================
-          App
+                        App Styles
 ==================================================================*/
 .app {
   height: 100%;
@@ -273,8 +279,27 @@ small {
   padding-bottom: 5em;
 }
 
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .appWrapper {
   max-width: 750px;
   width: 100%;
   margin: 0 auto;
+}
+
+
+
+
+.option--focused {
+  background-color: var(--color-neutral-600);
+  color: var(--color-neutral-100);
+}
+
+.option--selected {
+  background-color: var(--color-neutral-800);
+  color: var(--color-neutral-100);
 }
