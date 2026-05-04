@@ -271,12 +271,14 @@ small {
 .app {
   height: 100%;
   width: 100%;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 5em;
   padding-bottom: 5em;
+
 }
 
 .container {
@@ -302,4 +304,19 @@ small {
 .option--selected {
   background-color: var(--color-neutral-800);
   color: var(--color-neutral-100);
+}
+
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 3000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

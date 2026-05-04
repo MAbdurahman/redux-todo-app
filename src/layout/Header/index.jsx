@@ -7,14 +7,14 @@ export default function Header() {
 
    return (
       <div className={styles.header}>
-         <Button variant='primary'>
-            Add ToDo
-         </Button>
          <SelectButton>
             <option value='all' >All ToDos</option>
             <option value='completed'>Completed</option>
             <option value='incomplete'>Incomplete</option>
          </SelectButton>
+         <Button variant='primary'>
+            Add ToDo
+         </Button>
       </div>
 
    );

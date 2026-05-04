@@ -1,23 +1,24 @@
 
 
 .button {
-   display: inline-block;
    height: auto;
-   padding: 0.8rem 2rem;
-   border: none;
-   border-radius: 5px;
+   overflow: hidden;
+   display: inline-block;
+   padding: 1rem 2rem;
    font-weight: 800;
    font-size: 1.6rem;
    text-decoration: none;
    text-transform: capitalize;
+   border: none;
+   border-radius: 5px;
    cursor: pointer;
-   overflow: hidden;
+   transition: background-color 0.2s ease-in-out;
 
 }
 .primary {
    background-color: var(--color-neutral-600);
    color: var(--color-neutral-100);
-   transition: background-color 0.2s ease-in-out;
+
 }
 .primary:hover {
    background-color: var(--color-neutral-700);
@@ -26,7 +27,7 @@
 .secondary {
    background-color: var(--color-neutral-300);
    color: var(--color-neutral-800);
-   transition: background-color 0.2s ease-in-out;
+
 }
 .secondary:hover {
    background-color: var(--color-neutral-500);
