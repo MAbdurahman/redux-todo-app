@@ -17,14 +17,16 @@ export default function SelectButton({children, id, ...rest}) {
          textAlign: 'left',
          fontSize: '1.6rem',
          fontWeight: 800,
-         cursor: 'pointer',
          backgroundColor: '#7a7a7a',
          borderRadius: '5px',
          border: 'none',
-         boxShadow: 'none'
+         boxShadow: 'none',
+         cursor: 'pointer'
       }),
       option: (provided, state) => ({
-         ...provided,
+         ...provided,  '&:hover': {
+            color: '#fafafa', // Change the color on hover
+         },
          backgroundColor: state.isFocused ? '#7a7a7a' : '#949494',
          textAlign: 'left',
          fontSize: '1.6rem',
