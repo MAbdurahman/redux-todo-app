@@ -68,7 +68,7 @@ svg {
 .time {
    display: block;
    font-size: 1.2rem;
-   font-weight: 300;
+   font-weight: 400;
    margin-top: -0.2rem;
    color: var(--color-neutral-800);
 }

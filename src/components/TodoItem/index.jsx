@@ -16,7 +16,7 @@ const child = {
    }
 };
 
-export default function TodoItem() {
+export default function TodoItem({todo}) {
    /************************* variables *************************/
    const [checked, setChecked] = useState(false);
    const [updateModalOpen, setUpdateModalOpen] = useState(false);
@@ -43,7 +43,7 @@ export default function TodoItem() {
             <div className={styles.todoDetails}>
                <div className={styles.texts}>
                   <p className={getClasses([styles.todoText])}>todo item title</p>
-                  <p className={styles.time}>todo item date</p>
+                  <p className={styles.time}>5 May 2026 12:33.40 pm</p>
                </div>
             </div>
             <div className={styles.todoActions}>

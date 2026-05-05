@@ -293,20 +293,6 @@ small {
   margin: 0 auto;
 }
 
-
-
-
-.option--focused {
-  background-color: var(--color-neutral-600);
-  color: var(--color-neutral-100);
-}
-
-.option--selected {
-  background-color: var(--color-neutral-800);
-  color: var(--color-neutral-100);
-}
-
-
 .fade-in {
   animation-name: fadeIn;
   animation-duration: 3000ms;

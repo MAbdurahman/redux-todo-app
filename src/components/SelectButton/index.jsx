@@ -1,6 +1,5 @@
 import Select from 'react-select';
 
-
 export default function SelectButton({children, id, ...rest}) {
 
    const options = [
@@ -10,24 +9,28 @@ export default function SelectButton({children, id, ...rest}) {
    ];
 
    const customStyles = {
-      control: (provided, state) => ({
+      control: (provided) => ({
          ...provided,
          position: 'relative',
          width: '144px',
          textAlign: 'left',
          fontSize: '1.6rem',
          fontWeight: 800,
-         backgroundColor: '#7a7a7a',
+         background: '#7a7a7a',
          borderRadius: '5px',
          border: 'none',
          boxShadow: 'none',
          cursor: 'pointer'
       }),
+      singleValue: (provided, state) => ({
+         ...provided,
+         color: state.isSelected ? '#fafafa' : '#2e2e2e'
+      }),
       option: (provided, state) => ({
          ...provided,  '&:hover': {
             color: '#fafafa', // Change the color on hover
          },
-         backgroundColor: state.isFocused ? '#7a7a7a' : '#949494',
+         background: state.isFocused ? '#7a7a7a' : '#949494',
          textAlign: 'left',
          fontSize: '1.6rem',
          fontWeight: 800,
@@ -49,11 +52,7 @@ export default function SelectButton({children, id, ...rest}) {
    };
 
    return (
-      <Select  classNames={{
-         option: ({ isFocused, isSelected }) =>
-            isFocused ? 'option--focused' :
-               isSelected ? 'option--selected' : ''
-      }} defaultValue={options[0]} options={options} styles={customStyles} id={id} {...rest} >
+      <Select defaultValue={options[0]} options={options} styles={customStyles} id={id} {...rest} >
          {children}
       </Select>
    );
