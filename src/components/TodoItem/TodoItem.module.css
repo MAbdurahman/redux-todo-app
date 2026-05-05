@@ -1,23 +1,25 @@
 
-
 .item {
    display: flex;
    align-items: center;
    justify-content: space-between;
    padding: 1rem;
-   background: var(--color-neutral-100);
+   background: var(--color-neutral-200);
    margin-bottom: 1.5rem;
    border-radius: 4px;
-   &:last-child {
-      margin-bottom: 0;
-   }
+
 }
+.item:last-child {
+   margin-bottom: 0;
+}
+
 .todoDetails {
    display: flex;
    align-items: center;
    justify-content: flex-start;
    gap: 1rem;
 }
+
 .svgBox {
    flex-basis: 25px;
    flex-shrink: 0;
@@ -29,34 +31,40 @@
    padding: 5px;
    cursor: pointer;
    transition: 0.3s ease background-color;
-   &:hover {
-      background-color: var(--color-neutral-300);
-   }
-   svg {
-      width: 100%;
-      height: 100%;
-      stroke: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-   }
+
+}
+.svgBox:hover {
+   background-color: var(--color-neutral-300);
+}
+
+svg {
+   width: 100%;
+   height: 100%;
+   stroke: white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 .texts {
    display: flex;
    flex-direction: column;
    overflow: hidden;
 }
+
 .todoText {
    word-break: break-all;
    font-weight: 500;
    font-size: 1.4rem;
+   text-align: left;
    color: var(--color-neutral-800);
 
 }
 .todoTextCompleted {
    text-decoration: line-through;
+   text-decoration-thickness: 3px;
    opacity: 0.7;
 }
+
 .time {
    display: block;
    font-size: 1.2rem;
@@ -70,18 +78,40 @@
    justify-content: center;
    gap: 1rem;
 }
-.icon {
-   font-size: 2rem;
-   padding: 0.5rem;
-   border-radius: 4px;
-   background-color: var(--color-neutral-400);
-   color: var(--color-neutral-800);
+
+.editIcon {
    display: flex;
    align-items: center;
    justify-content: center;
+   padding: 0.5rem;
+   font-size: 2rem;
+   color: var(--color-semantic-warn-400);
+   background-color: var(--color-neutral-300);
+   border-radius: 5px;
    cursor: pointer;
-   transition: 0.3s ease background-color;
-   &:hover {
-      background-color: var(--color-neutral-400);
-   }
+   transition: 0.333s ease background-color, 0.333s ease color;
+
+}
+.editIcon:hover {
+   background-color: var(--color-neutral-500);
+   color: var(--color-semantic-extreme-warn-100);
+}
+
+
+.deleteIcon {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 0.5rem;
+   font-size: 2rem;
+   color: var(--color-semantic-alert-400);
+   background-color: var(--color-neutral-300);
+   border-radius: 5px;
+   cursor: pointer;
+   transition: 0.333s ease background-color, 0.333s ease color;
+}
+
+.deleteIcon:hover {
+   background-color: var(--color-neutral-400);
+   color: var(--color-semantic-alert-200);
 }

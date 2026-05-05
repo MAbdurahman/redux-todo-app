@@ -315,3 +315,9 @@ export function titleize(str) {
 export function removeHTMLTags(str) {
    return makeString(str).replace(/<\/?[^>]+>/g, '');
 }
+
+export const getClasses = classes =>
+   classes
+      .filter(item => item !== '')
+      .join(' ')
+      .trim();
