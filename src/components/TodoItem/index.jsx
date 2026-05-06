@@ -7,7 +7,6 @@ import CheckButton from '../CheckButton/index.jsx';
 import {getClasses} from '../../assets/utils/functionsUtils.js';
 import styles from './TodoItem.module.css';
 
-
 const child = {
    hidden: {y: 20, opacity: 0},
    visible: {
