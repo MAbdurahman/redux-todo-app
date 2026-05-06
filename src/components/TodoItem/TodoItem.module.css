@@ -56,7 +56,7 @@ svg {
    font-weight: 500;
    font-size: 1.4rem;
    text-align: left;
-   color: var(--color-neutral-800);
+   color: var(--color-augmented-800);
 
 }
 .todoTextCompleted {
@@ -70,7 +70,7 @@ svg {
    font-size: 1.2rem;
    font-weight: 400;
    margin-top: -0.2rem;
-   color: var(--color-neutral-800);
+   color: var(--color-augmented-900);
 }
 .todoActions {
    display: flex;
@@ -96,7 +96,6 @@ svg {
    background-color: var(--color-neutral-500);
    color: var(--color-semantic-extreme-warn-100);
 }
-
 
 .deleteIcon {
    display: flex;

@@ -43,7 +43,7 @@ export default function TodoItem({todo}) {
             <div className={styles.todoDetails}>
                <div className={styles.texts}>
                   <p className={getClasses([styles.todoText])}>todo item title</p>
-                  <p className={styles.time}>5 May 2026 12:33.40 pm</p>
+                  <p className={styles.time}>05 May 2026 12:33.40 pm</p>
                </div>
             </div>
             <div className={styles.todoActions}>

@@ -293,6 +293,7 @@ small {
   margin: 0 auto;
 }
 
+/********************* animation and keyframe *********************/
 .fade-in {
   animation-name: fadeIn;
   animation-duration: 3000ms;
@@ -303,4 +304,94 @@ small {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/*===============================================================
+                     Notification Styles
+==================================================================*/
+.bg-semantic-a-400 {
+  background-color: hsl(0, 96%, 33%);
+  border-left: 8px solid hsl(0, 94%, 21%);
+}
+
+.bg-semantic-i-400 {
+  background-color: hsl(215, 96%, 33%);
+  border-left: 8px solid hsl(214, 94%, 21%);
+}
+
+.bg-semantic-s-400 {
+  background-color: hsl(100, 96%, 33%);
+  border-left: 8px solid hsl(115, 94%, 19%);
+}
+
+.bg-semantic-w-400 {
+  background-color: hsl(48, 96%, 50%);
+  border-left: 8px solid hsl(39, 92%, 38%);
+}
+
+/********************* animations and keyframes *********************/
+.move-in-from-right {
+  animation-name: move-in-from-right;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+.exit-to-left {
+  animation-name: exit-to-left;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.move-back-to-right {
+  animation-name: move-back-to-right;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes move-in-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-50px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes exit-to-left {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(-2000px);
+  }
+}
+
+@keyframes move-back-to-right {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(2000px);
+  }
 }
