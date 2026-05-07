@@ -4,6 +4,8 @@ import { MdOutlineClose } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
 import SelectButton from '../SelectButton/index.jsx';
+import useNotification from '../../assets/hooks/useNotification.jsx';
+import {addTodo, updateTodo} from '../../store/features/todoSlice.jsx';
 import Button from '../Button/index.jsx';
 import styles from './TodoModal.module.css';
 
@@ -29,20 +31,126 @@ const dropIn = {
 };
 
 export default function TodoModal({ type, modalOpen, setModalOpen, todo }) {
+   /************************* variables *************************/
    const [title, setTitle] = useState('');
    const [status, setStatus] = useState('incomplete');
    const dispatch = useDispatch();
+   const {updateNotification} = useNotification();
+
+   /************************* functions *************************/
+   useEffect(() => {
+      if (type === 'update' && todo) {
+         setTitle(todo.title);
+         setStatus(todo.status);
+      } else {
+         setTitle('');
+         setStatus('incomplete');
+      }
+   }, [type, todo, modalOpen]);
 
    function handleSubmit(e) {
       e.preventDefault();
-      console.log('target', e.target);
+      if (title === '') {
+         toast.error('A Task Title Is Required!');
+         return;
+      }
+      if (title && status) {
+         if (type === 'add') {
+            dispatch(
+               addTodo({
+                  id: uuid(),
+                  title,
+                  status,
+                  time: new Date().toLocaleString(),
+               })
+            );
+            updateNotification('success', 'ToDo item added successfully!');
+
+         }
+         if (type === 'update') {
+            if (todo.title !== title || todo.status !== status) {
+               dispatch(updateTodo({ ...todo, title, status }));
+               updateNotification('success', 'ToDo item updated successfully!');
+
+            } else {
+               updateNotification('error', 'Click Cancel - Nothing updated!');
+               return;
+            }
+         }
+         setModalOpen(false);
+      }
    }
 
 
    return (
-      <div>
-         <h2>TodoModal</h2>
-      </div>
+      <AnimatePresence>
+         {modalOpen && (
+            <motion.div
+               className={styles.wrapper}
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               exit={{ opacity: 0 }}
+            >
+               <motion.div
+                  className={styles.container}
+                  variants={dropIn}
+                  initial='hidden'
+                  animate='visible'
+                  exit='exit'
+               >
+                  <motion.div
+                     className={styles.closeButton}
+                     onKeyDown={() => setModalOpen(false)}
+                     onClick={() => setModalOpen(false)}
+                     role='button'
+                     tabIndex={0}
+                     // animation
+                     initial={{ top: 40, opacity: 0 }}
+                     animate={{ top: -10, opacity: 1 }}
+                     exit={{ top: 40, opacity: 0 }}
+                  >
+                     <MdOutlineClose />
+                  </motion.div>
+                  <form className={styles.form} onSubmit={e => handleSubmit(e)}>
+                     <h1 className={styles.formTitle}>
+                        {type === 'add' ? 'Add' : 'Update'} ToDo
+                     </h1>
+                     <label htmlFor='title'>
+                        Title
+                        <input
+                           type='text'
+                           id='title'
+                           value={title}
+                           onChange={e => setTitle(e.target.value)}
+                        />
+                     </label>
+                     <label htmlFor='type'>
+                        Status
+                        <select
+                           id='type'
+                           value={status}
+                           onChange={e => setStatus(e.target.value)}
+                        >
+                           <option value='incomplete'>Incomplete</option>
+                           <option value='complete'>Completed</option>
+                        </select>
+                     </label>
+                     <div className={styles.buttonContainer}>
+                        <Button type='submit' variant='primary'>
+                           {type === 'add' ? 'Add ToDo' : 'Update ToDo'}
+                        </Button>
+                        <Button
+                           variant='secondary'
+                           onClick={() => setModalOpen(false)}
+                        >
+                           Cancel
+                        </Button>
+                     </div>
+                  </form>
+               </motion.div>
+            </motion.div>
+         )}
+      </AnimatePresence>
 
    );
 }
