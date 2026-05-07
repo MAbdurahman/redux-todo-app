@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { v4 as uuid } from 'uuid';
-import { MdOutlineClose } from 'react-icons/md';
-import { useDispatch } from 'react-redux';
-import { AnimatePresence, motion } from 'framer-motion';
+import React, {useEffect, useState} from 'react';
+import {v4 as uuid} from 'uuid';
+import {MdOutlineClose} from 'react-icons/md';
+import {useDispatch} from 'react-redux';
+import {AnimatePresence, motion} from 'framer-motion';
 import SelectButton from '../SelectButton/index.jsx';
 import useNotification from '../../assets/hooks/useNotification.jsx';
 import {addTodo, updateTodo} from '../../store/features/todoSlice.jsx';
@@ -12,7 +12,7 @@ import styles from './TodoModal.module.css';
 const dropIn = {
    hidden: {
       opacity: 0,
-      transform: 'scale(0.9)',
+      transform: 'scale(0.9)'
    },
    visible: {
       transform: 'scale(1)',
@@ -21,22 +21,70 @@ const dropIn = {
          duration: 0.1,
          type: 'spring',
          damping: 25,
-         stiffness: 500,
-      },
+         stiffness: 500
+      }
    },
    exit: {
       transform: 'scale(0.9)',
-      opacity: 0,
-   },
+      opacity: 0
+   }
 };
 
-export default function TodoModal({ type, modalOpen, setModalOpen, todo }) {
+
+export default function TodoModal({type, modalOpen, setModalOpen, todo}) {
+
    /************************* variables *************************/
    const [title, setTitle] = useState('');
    const [status, setStatus] = useState('incomplete');
    const dispatch = useDispatch();
    const {updateNotification} = useNotification();
 
+   const options = [
+      {value: 'incomplete', label: 'Incomplete'},
+      {value: 'completed', label: 'Completed'}
+   ];
+   const customStyles = {
+      control: (provided) => ({
+         ...provided,
+         position: 'relative',
+         width: '100%',
+         textAlign: 'left',
+         fontSize: '1.6rem',
+         fontWeight: 800,
+         background: '#7a7a7a',
+         borderRadius: '5px',
+         border: 'none',
+         boxShadow: 'none',
+         cursor: 'pointer'
+      }),
+      singleValue: (provided, state) => ({
+         ...provided,
+         color: state.isSelected ? '#fafafa' : '#2e2e2e'
+      }),
+      option: (provided, state) => ({
+         ...provided, '&:hover': {
+            color: '#fafafa' // Change the color on hover
+         },
+         background: state.isFocused ? '#7a7a7a' : '#949494',
+         textAlign: 'left',
+         fontSize: '1.6rem',
+         fontWeight: 800,
+         border: '1px solid #fafafa',
+         borderRadius: '5px',
+         cursor: 'pointer'
+      }),
+      menu: (provided) => ({
+         ...provided,
+         zIndex: 100,
+         padding: 0
+      }),
+      menuList: base => ({
+         ...base,
+         // kill the white space on first and last option
+         padding: 0
+      })
+
+   };
    /************************* functions *************************/
    useEffect(() => {
       if (type === 'update' && todo) {
@@ -48,10 +96,11 @@ export default function TodoModal({ type, modalOpen, setModalOpen, todo }) {
       }
    }, [type, todo, modalOpen]);
 
+
    function handleSubmit(e) {
       e.preventDefault();
       if (title === '') {
-         toast.error('A Task Title Is Required!');
+         updateNotification('error', 'A Task Title is required!');
          return;
       }
       if (title && status) {
@@ -61,7 +110,7 @@ export default function TodoModal({ type, modalOpen, setModalOpen, todo }) {
                   id: uuid(),
                   title,
                   status,
-                  time: new Date().toLocaleString(),
+                  time: new Date().toLocaleString()
                })
             );
             updateNotification('success', 'ToDo item added successfully!');
@@ -69,7 +118,7 @@ export default function TodoModal({ type, modalOpen, setModalOpen, todo }) {
          }
          if (type === 'update') {
             if (todo.title !== title || todo.status !== status) {
-               dispatch(updateTodo({ ...todo, title, status }));
+               dispatch(updateTodo({...todo, title, status}));
                updateNotification('success', 'ToDo item updated successfully!');
 
             } else {
@@ -81,15 +130,14 @@ export default function TodoModal({ type, modalOpen, setModalOpen, todo }) {
       }
    }
 
-
    return (
       <AnimatePresence>
          {modalOpen && (
             <motion.div
                className={styles.wrapper}
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               exit={{ opacity: 0 }}
+               initial={{opacity: 0}}
+               animate={{opacity: 1}}
+               exit={{opacity: 0}}
             >
                <motion.div
                   className={styles.container}
@@ -105,11 +153,11 @@ export default function TodoModal({ type, modalOpen, setModalOpen, todo }) {
                      role='button'
                      tabIndex={0}
                      // animation
-                     initial={{ top: 40, opacity: 0 }}
-                     animate={{ top: -10, opacity: 1 }}
-                     exit={{ top: 40, opacity: 0 }}
+                     initial={{top: 40, opacity: 0}}
+                     animate={{top: -10, opacity: 1}}
+                     exit={{top: 40, opacity: 0}}
                   >
-                     <MdOutlineClose />
+                     <MdOutlineClose/>
                   </motion.div>
                   <form className={styles.form} onSubmit={e => handleSubmit(e)}>
                      <h1 className={styles.formTitle}>
@@ -124,33 +172,29 @@ export default function TodoModal({ type, modalOpen, setModalOpen, todo }) {
                            onChange={e => setTitle(e.target.value)}
                         />
                      </label>
-                     <label htmlFor='type'>
+                     <label htmlFor={type}>
                         Status
-                        <select
-                           id='type'
-                           value={status}
-                           onChange={e => setStatus(e.target.value)}
-                        >
-                           <option value='incomplete'>Incomplete</option>
-                           <option value='complete'>Completed</option>
-                        </select>
+                        <SelectButton id={type} value={status} options={options}
+                                      defaultValue={options[0]}
+                                      styles={customStyles}
+                                      onChange={option => setStatus(option)}/>
                      </label>
                      <div className={styles.buttonContainer}>
-                        <Button type='submit' variant='primary'>
-                           {type === 'add' ? 'Add ToDo' : 'Update ToDo'}
-                        </Button>
                         <Button
                            variant='secondary'
                            onClick={() => setModalOpen(false)}
                         >
                            Cancel
                         </Button>
+                        <Button type='submit' variant='primary'>
+                           {type === 'add' ? 'Add ToDo' : 'Update ToDo'}
+                        </Button>
+
                      </div>
                   </form>
                </motion.div>
             </motion.div>
          )}
       </AnimatePresence>
-
    );
 }
