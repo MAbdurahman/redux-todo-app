@@ -1,5 +1,5 @@
 
-import styles from './PageTitle.module.css';
+import styles from './PageTitle.module.scss';
 
 
 export default function PageTitle({ children, ...rest }) {
