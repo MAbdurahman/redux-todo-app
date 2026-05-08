@@ -1,15 +1,21 @@
 
-import styles from './Button.module.css';
+import {getClasses} from '../../assets/utils/functionsUtils.js';
+import styles from './Button.module.scss';
 
 const buttonTypes = {
-   primary: 'Primary',
+   primary: 'primary',
    secondary: 'Secondary',
 };
 
-export default function Button({ type, variant, children, ...rest }){
+export default function Button({ type, variant = 'primary', children, ...rest }){
    return (
-      <button type={type === 'submit' ? 'submit' : 'button'}
-         className={`${styles.button} ${styles[variant]}`}{...rest} >
+      <button
+         type={type === 'submit' ? 'submit' : 'button'}
+         className={getClasses([styles.button,
+            styles[`button--${buttonTypes[variant]}`],
+         ])}
+         {...rest}
+      >
          {children}
       </button>
    );
