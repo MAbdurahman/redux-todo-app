@@ -4,10 +4,11 @@ import {MdOutlineClose} from 'react-icons/md';
 import {useDispatch} from 'react-redux';
 import {AnimatePresence, motion} from 'framer-motion';
 import SelectButton from '../SelectButton/index.jsx';
+import ModalSelectButton from '../ModalSelectButton/index.jsx';
 import useNotification from '../../assets/hooks/useNotification.jsx';
 import {addTodo, updateTodo} from '../../store/features/todoSlice.jsx';
 import Button from '../Button/index.jsx';
-import styles from './TodoModal.module.css';
+import styles from './TodoModal.module.scss';
 
 const dropIn = {
    hidden: {
@@ -160,9 +161,9 @@ export default function TodoModal({type, modalOpen, setModalOpen, todo}) {
                      <MdOutlineClose/>
                   </motion.div>
                   <form className={styles.form} onSubmit={e => handleSubmit(e)}>
-                     <h1 className={styles.formTitle}>
+                     <h2 className={styles.formTitle}>
                         {type === 'add' ? 'Add' : 'Update'} ToDo
-                     </h1>
+                     </h2>
                      <label htmlFor='title'>
                         Title
                         <input
@@ -174,11 +175,16 @@ export default function TodoModal({type, modalOpen, setModalOpen, todo}) {
                      </label>
                      <label htmlFor={type}>
                         Status
+
+                        <ModalSelectButton
+                           onChange={option => setStatus(option)}
+                        >
+                           {options.length > 0 && (options.map(option => (
+                                 <option className={styles.option} value={option.value}>{option.label}</option>
+                              )))}
+                        </ModalSelectButton>
+
                      </label>
-                        <SelectButton id={type} value={status} options={options}
-                                      defaultValue={options[0]}
-                                      styles={customStyles}
-                                      onChange={option => setStatus(option)}/>
 
                      <div className={styles.buttonContainer}>
                         <Button

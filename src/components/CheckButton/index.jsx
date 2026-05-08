@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import styles from './CheckButton.module.css';
+import styles from './CheckButton.module.scss';
 
 
 const checkVariants = {
@@ -41,7 +41,7 @@ export default function CheckButton(checked, handleCheck) {
                style={{ pathLength, opacity }}
                fill='none'
                strokeMiterlimit='10'
-               strokeWidth='6'
+               strokeWidth='8'
                d='M1.5 22L16 36.5L51.5 1'
                strokeLinejoin='round'
                strokeLinecap='round'

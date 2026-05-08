@@ -159,15 +159,6 @@ option::checkmark {
   overflow: hidden;
   transition: background-color 0.333s ease-in-out,
   color 0.333s ease-in-out;
-  /*&__select {
-     color: var(--black-2);
-     padding: 1rem;
-     border: none;
-     background-color: var(--bg-3);
-
-     width: 150px;
-     cursor: pointer;
-  }*/
 
 }
 
@@ -182,7 +173,7 @@ option::checkmark {
   font-size: 1.6rem;
   text-decoration: none;
   text-transform: capitalize;
-  color: var(--color-neutral-100);
+  color: var(--color-neutral-800);
   background-color: var(--color-neutral-500);
   border: none;
   border-radius: 5px;
@@ -198,8 +189,7 @@ option::checkmark {
 
 }
 
-.option:hover,
-.option:focus {
+select option:hover {
   background-color: #198754; /* Change to your desired color */
   color: #fff; /* Change text color if needed */
 }

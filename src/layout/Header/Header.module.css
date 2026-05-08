@@ -45,7 +45,7 @@
    cursor: pointer;
 }
 
-select option:hover {
+ option:hover {
    background-color: #198754; /* Change to your desired color */
    color: #fff; /* Change text color if needed */
 }

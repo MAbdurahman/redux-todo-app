@@ -4,7 +4,7 @@ import styles from './Button.module.scss';
 
 const buttonTypes = {
    primary: 'primary',
-   secondary: 'Secondary',
+   secondary: 'secondary',
 };
 
 export default function Button({ type, variant = 'primary', children, ...rest }){
