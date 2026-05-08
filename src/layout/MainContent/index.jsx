@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import TodoItem from '../../components/TodoItem/index.jsx';
-import styles from './MainContent.module.css';
+import styles from './MainContent.module.scss';
 
 const container = {
    hidden: { opacity: 1 },
@@ -35,7 +35,7 @@ export default function MainContent() {
       if (filterStatus === 'all') {
          return true;
       }
-      return item.status = filterStatus;
+      return item.status === filterStatus;
    });
 
    return (

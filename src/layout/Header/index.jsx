@@ -4,7 +4,7 @@ import Button from '../../components/Button/index.jsx';
 import SelectButton from '../../components/SelectButton/index.jsx';
 import TodoModal from '../../components/TodoModal/index.jsx';
 import {updateFilterStatus} from '../../store/features/todoSlice.jsx';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 
 export default function Header() {
@@ -26,13 +26,15 @@ export default function Header() {
       dispatch(updateFilterStatus(e.target.value));
    }
 
+   console.log('filterStatus', filterStatus);
+
    return (
       <div className={styles.header}>
          <SelectButton id='status' value={filterStatus}
                        onChange={e => updateFilterHandler(e)}
          >
             {options.length > 0 && (options.map(option => (
-               <option className={styles.option} value={option.value}>{option.label}</option>
+               <option key={option.value} className={styles.option} value={option.value}>{option.label}</option>
             )))}
          </SelectButton>
          <Button variant='primary' onClick={() => setModalOpen(true)}>
