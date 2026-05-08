@@ -15,11 +15,7 @@ export default function Header() {
    const [filterStatus, setFilterStatus] = useState(initialFilterStatus);
    const dispatch = useDispatch();
 
-   const options = [
-      {value: 'all', label: 'All ToDos'},
-      {value: 'completed', label: 'Completed'},
-      {value: 'incomplete', label: 'Incomplete'}
-   ];
+
    const customStyles = {
       control: (provided) => ({
          ...provided,
@@ -62,6 +58,11 @@ export default function Header() {
       })
 
    };
+   const options = [
+      {value: 'all', label: 'All ToDos'},
+      {value: 'completed', label: 'Completed'},
+      {value: 'incomplete', label: 'Incomplete'}
+   ];
 
    /************************* functions *************************/
    function updateFilterHandler(option) {
@@ -70,12 +71,14 @@ export default function Header() {
    }
 
 
+
    return (
       <div className={styles.header}>
-         <SelectButton id='status' defaultValue={options[0]} options={options}
-                       styles={customStyles}
-                       value={filterStatus}
-                       onChange={option => updateFilterHandler(option)}/>
+         <SelectButton >
+            {options.length > 0 && (options.map(option => (
+               <option className={styles.option} value={option.value}>{option.label}</option>
+            )))}
+         </SelectButton>
          <Button variant='primary' onClick={() => setModalOpen(true)}>
             Add ToDo
          </Button>

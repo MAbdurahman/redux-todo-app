@@ -1,11 +1,15 @@
 import Select from 'react-select';
+import {getClasses} from '../../assets/utils/functionsUtils.js';
+import styles from './SelectButton.module.scss';
 
-export default function SelectButton({children, options, styles, value, id, ...rest}) {
+export default function SelectButton({ children, id, ...rest }) {
 
 
    return (
-      <Select options={options} styles={styles} value={value} id={id} {...rest} >
+      <select id={id}
+              className={getClasses([styles.button, styles.button__select])}
+              {...rest} >
          {children}
-      </Select>
+      </select>
    );
 }

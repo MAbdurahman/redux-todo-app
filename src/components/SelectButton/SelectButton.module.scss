@@ -144,3 +144,32 @@ option::checkmark {
    !*width: 150px;*!
    cursor: pointer;
 }*/
+.button__select {
+  position: relative;
+  width: 140px;
+  display: inline-block;
+  height: auto;
+  padding: 1rem;
+  font-weight: 800;
+  font-size: 1.6rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--color-neutral-100);
+  background-color: var(--color-neutral-500);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.333s ease-in-out,
+  color 0.333s ease-in-out;
+
+}
+.button__select:hover {
+  background-color: var(--color-neutral-600);
+
+}
+
+select .option:hover {
+  background-color: #198754; /* Change to your desired color */
+  color: #fff; /* Change text color if needed */
+}

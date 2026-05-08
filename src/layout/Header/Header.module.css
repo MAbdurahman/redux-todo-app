@@ -31,3 +31,21 @@
    width: max-content;
    height: auto;
 }
+
+.option {
+   font-size: 1.6rem;
+   font-weight: 800;
+   color: var(--color-neutral-800);
+   background-color: var(--color-neutral-200);
+   cursor: pointer;
+}
+.option:hover,
+.option:focus {
+   background-color: var(--color-neutral-500);
+   cursor: pointer;
+}
+
+select option:hover {
+   background-color: #198754; /* Change to your desired color */
+   color: #fff; /* Change text color if needed */
+}
