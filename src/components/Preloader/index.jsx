@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {StyledPreloaderContainer,
-   StyledPreloader} from '../styles/Preloader.styled.jsx';
+   StyledPreloader} from '../../styles/Preloader.styled.jsx';
 import PreloaderGif from '../../assets/img/preloader.gif';
 
 export default function Preloader() {
