@@ -6,6 +6,8 @@ import {useDispatch} from 'react-redux';
 import CheckButton from '../CheckButton/index.jsx';
 import {getClasses} from '../../assets/utils/functionsUtils.js';
 import styles from './TodoItem.module.css';
+import {updateTodo} from '../../store/features/todoSlice.jsx';
+import useNotification from '../../assets/hooks/useNotification.jsx';
 
 const child = {
    hidden: {y: 20, opacity: 0},
@@ -20,11 +22,16 @@ export default function TodoItem({todo}) {
    const [checked, setChecked] = useState(false);
    const [updateModalOpen, setUpdateModalOpen] = useState(false);
    const dispatch = useDispatch();
+   const {updateNotification} = useNotification();
 
    /************************* functions *************************/
-   function handleCheck() {
-      console.log('handleCheck');
-   }
+   const handleCheck = () => {
+      setChecked(!checked);
+      dispatch(
+         updateTodo({ ...todo, status: checked ? 'incomplete' : 'complete' })
+      );
+      updateNotification('success', 'ToDo item updated successfully!');
+   };
 
    function handleDelete() {
       console.log('handleDelete');

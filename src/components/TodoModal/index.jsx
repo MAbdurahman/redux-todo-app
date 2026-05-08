@@ -174,11 +174,12 @@ export default function TodoModal({type, modalOpen, setModalOpen, todo}) {
                      </label>
                      <label htmlFor={type}>
                         Status
+                     </label>
                         <SelectButton id={type} value={status} options={options}
                                       defaultValue={options[0]}
                                       styles={customStyles}
                                       onChange={option => setStatus(option)}/>
-                     </label>
+
                      <div className={styles.buttonContainer}>
                         <Button
                            variant='secondary'

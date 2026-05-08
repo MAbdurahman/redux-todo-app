@@ -313,7 +313,7 @@ small {
   position: fixed;
   left: 50%;
   top: 50%;
-  z-index: 200;
+  z-index: 10000;
   height: 50dvh;
   width: 320px;
   transform: translate(-50%, 0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
@@ -331,7 +331,7 @@ small {
   font-weight: 600;
   /*font-size: calc(10px + 2vmin);*/
   font-size: 16px;
-  color: rgb(249,250,251);
+  color: var(--color-neutral-100);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 
