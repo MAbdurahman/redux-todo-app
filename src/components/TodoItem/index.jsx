@@ -33,12 +33,12 @@ export default function TodoItem({todo}) {
       }
    }, [todo.status]);
 
-   const handleCheck = () => {
+   function handleCheck() {
       setChecked(!checked);
       dispatch(
          updateTodo({ ...todo, status: checked ? 'incomplete' : 'complete' }));
       updateNotification('success', 'ToDo item updated successfully!');
-   };
+   }
 
    function handleDelete() {
       dispatch(deleteTodo(todo.id));

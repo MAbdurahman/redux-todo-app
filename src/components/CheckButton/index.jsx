@@ -1,7 +1,6 @@
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import styles from './CheckButton.module.scss';
 
-
 const checkVariants = {
    initial: {
       color: 'var(--color-neutral-000)',
@@ -12,13 +11,16 @@ const checkVariants = {
 
 const boxVariants = {
    checked: {
-      background: 'var(--color-neutral-600)',
+      background: 'var(--color-neutral-500)',
       transition: { duration: 0.1 },
    },
-   unchecked: { background: 'var(--color-neutral-500)', transition: { duration: 0.1 } },
+   unchecked: {
+      background: 'var(--color-neutral-300)',
+      transition: { duration: 0.1 }
+   },
 };
 
-export default function CheckButton(checked, handleCheck) {
+export default function CheckButton({checked, handleCheck}) {
    const pathLength = useMotionValue(0);
    const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
 
