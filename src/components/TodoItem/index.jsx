@@ -5,8 +5,8 @@ import {MdDelete, MdEdit} from 'react-icons/md';
 import {useDispatch} from 'react-redux';
 import CheckButton from '../CheckButton/index.jsx';
 import {getClasses} from '../../assets/utils/functionsUtils.js';
-import styles from './TodoItem.module.css';
-import {updateTodo} from '../../store/features/todoSlice.jsx';
+import styles from './TodoItem.module.scss';
+import {deleteTodo, updateTodo} from '../../store/features/todoSlice.jsx';
 import useNotification from '../../assets/hooks/useNotification.jsx';
 
 const child = {
@@ -25,20 +25,28 @@ export default function TodoItem({todo}) {
    const {updateNotification} = useNotification();
 
    /************************* functions *************************/
+   useEffect(() => {
+      if (todo.status === 'complete') {
+         setChecked(true);
+      } else {
+         setChecked(false);
+      }
+   }, [todo.status]);
+
    const handleCheck = () => {
       setChecked(!checked);
       dispatch(
-         updateTodo({ ...todo, status: checked ? 'incomplete' : 'complete' })
-      );
+         updateTodo({ ...todo, status: checked ? 'incomplete' : 'complete' }));
       updateNotification('success', 'ToDo item updated successfully!');
    };
 
    function handleDelete() {
-      console.log('handleDelete');
+      dispatch(deleteTodo(todo.id));
+      updateNotification('success', 'ToDo item deleted successfully!');
    }
 
    function handleUpdate() {
-      console.log('handleUpdate');
+      setUpdateModalOpen(true);
    }
 
 
@@ -48,8 +56,10 @@ export default function TodoItem({todo}) {
             <CheckButton checked={checked} handleCheck={handleCheck} />
             <div className={styles.todoDetails}>
                <div className={styles.texts}>
-                  <p className={getClasses([styles.todoText])}>{todo.title}</p>
-                  <p className={styles.time}>{todo.time}</p>
+                  <p className={getClasses([styles.todoText, todo.status === 'complete' &&
+                     styles['todoText__completed'],
+                  ])}>{todo.title}</p>
+                  <p className={styles.time}>{format(new Date(todo.time), 'p, dd MMMM yyyy')}</p>
                </div>
             </div>
             <div className={styles.todoActions}>

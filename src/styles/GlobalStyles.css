@@ -264,10 +264,7 @@ small {
   font-size: 0.8rem;
 }
 
-select option:hover {
-  background-color: #198754; /* Change to your desired color */
-  color: #fff; /* Change text color if needed */
-}
+
 
 /*===============================================================
                         App Styles
@@ -339,7 +336,6 @@ select option:hover {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 
-
 }
 
 .utils-center-vertically {
@@ -347,12 +343,12 @@ select option:hover {
   top: 50%;
   width: clamp(320px, 320px + 2vw, 360px);
 
-
 }
 
 .utils-center-text {
   text-align: center;
 }
+
 .bg-semantic-a-400 {
   background-color: hsl(0, 96%, 33%);
   border-left: 8px solid hsl(0, 94%, 21%);

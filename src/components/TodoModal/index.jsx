@@ -180,7 +180,7 @@ export default function TodoModal({type, modalOpen, setModalOpen, todo}) {
                            onChange={option => setStatus(option)}
                         >
                            {options.length > 0 && (options.map(option => (
-                                 <option className={styles.option} value={option.value}>{option.label}</option>
+                                 <option key={option.value} className={styles.option} value={option.value}>{option.label}</option>
                               )))}
                         </ModalSelectButton>
 
