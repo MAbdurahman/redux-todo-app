@@ -194,7 +194,7 @@ export default function TodoModal({type, modalOpen, setModalOpen, todo}) {
                            Cancel
                         </Button>
                         <Button type='submit' variant='primary'>
-                           {type === 'add' ? 'Add ToDo' : 'Update ToDo'}
+                           {type === 'add' ? 'Add ToDo' : 'Update'}
                         </Button>
 
                      </div>

@@ -26,7 +26,6 @@ export default function Header() {
       dispatch(updateFilterStatus(e.target.value));
    }
 
-   console.log('filterStatus', filterStatus);
 
    return (
       <div className={styles.header}>

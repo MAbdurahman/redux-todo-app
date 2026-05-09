@@ -40,7 +40,7 @@ export default function MainContent() {
 
    return (
       <motion.div
-         className={styles.contentWrapper}
+         className={styles.mainWrapper}
          variants={container}
          initial='hidden'
          animate='visible'

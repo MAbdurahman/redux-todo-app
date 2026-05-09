@@ -45,7 +45,7 @@ export const todoSlice = createSlice({
                   todoListArr.splice(index, 1);
                }
             });
-            window.localStorage.setItem('redux_todoList', JSON.stringify(...todoListArr));
+            window.localStorage.setItem('redux_todoList', JSON.stringify({todoListArr}));
             state.todoList = todoListArr;
          }
       },
