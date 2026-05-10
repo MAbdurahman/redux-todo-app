@@ -53,7 +53,7 @@ export default function MainContent() {
                ))
             ) : (
                <motion.div variants={child} className={styles.emptyTextWrapper}>
-                  <h4 className={styles.emptyText}>{'No ToDo'}</h4>
+                  <h4 className={styles.emptyText}>{'No ToDo Item'}</h4>
                </motion.div>
             )}
          </AnimatePresence>

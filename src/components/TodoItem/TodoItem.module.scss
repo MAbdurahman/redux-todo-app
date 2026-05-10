@@ -1,9 +1,11 @@
 
 .item {
+   position: relative;
+   width: 100%;
    display: flex;
    align-items: center;
    justify-content: space-between;
-   padding: 1rem;
+   padding: 1rem 1.2rem;
    background: var(--color-neutral-200);
    margin-bottom: 1.5rem;
    border-radius: 5px;
@@ -13,6 +15,7 @@
 }
 
 .todoDetails {
+   position: relative;
    display: flex;
    align-items: center;
    justify-content: flex-start;
@@ -47,8 +50,13 @@
 }
 
 .texts {
+   position: relative;
+   top: 0;
+   left: 3px;
+   width: 33.333%;
    display: flex;
    flex-direction: column;
+   gap: -.5em;
    overflow: hidden;
 }
 
@@ -56,7 +64,8 @@
    word-break: break-all;
    font-weight: 500;
    font-size: 1.4rem;
-   text-align: left;
+   line-height: 1.2;
+   /*text-align: left;*/
    color: var(--color-augmented-800);
    &__completed {
       text-decoration: line-through;
