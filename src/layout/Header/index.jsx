@@ -16,12 +16,12 @@ export default function Header() {
 
    const options = [
       {value: 'all', label: 'All ToDos'},
-      {value: 'completed', label: 'Completed'},
+      {value: 'complete', label: 'Completed'},
       {value: 'incomplete', label: 'Incomplete'}
    ];
 
    /************************* functions *************************/
-   function updateFilterHandler(e) {
+   const updateFilterHandler = e => {
       setFilterStatus(e.target.value);
       dispatch(updateFilterStatus(e.target.value));
    }

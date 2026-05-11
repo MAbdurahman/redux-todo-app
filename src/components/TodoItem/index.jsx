@@ -47,6 +47,7 @@ export default function TodoItem({todo}) {
    }
 
    function handleUpdate() {
+      /*dispatch(updateTodo(todo.id));*/
       setUpdateModalOpen(true);
    }
 
@@ -90,7 +91,6 @@ export default function TodoItem({todo}) {
                >
                   <MdDelete />
                </div>
-
             </div>
          </motion.div>
          <TodoModal

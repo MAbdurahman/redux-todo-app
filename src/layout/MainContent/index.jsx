@@ -26,7 +26,6 @@ export default function MainContent() {
    /*************************** variables ***************************/
    const todoList = useSelector(state => state.todo.todoList);
    const filterStatus = useSelector(state => state.todo.filterStatus);
-   console.log(todoList)
    const sortedTodoList = Array.from(todoList);
 
    /*************************** functions ***************************/
@@ -38,6 +37,9 @@ export default function MainContent() {
       }
       return item.status === filterStatus;
    });
+   /*console.log('filteredTodoList - ', filteredTodoList)
+   console.log('sortedTodoList - ',sortedTodoList)*/
+   console.log('filterStatus - ', filterStatus)
 
    return (
       <motion.div

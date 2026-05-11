@@ -26,6 +26,10 @@ export const StyledPreloaderContainer = styled.div`
 export const StyledPreloader = styled.img`
    width: 66.6666%;
    align-self: center;
+   @media screen and (min-width: 320px) {
+      width: 30%;
+      
+   }
    @media screen and (min-width: 1030px) {
       width: 15%;
    }
