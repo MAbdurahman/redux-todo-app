@@ -60,7 +60,6 @@ export const todoSlice = createSlice({
                }
             });
 
-
             window.localStorage.setItem('redux_todoList', JSON.stringify(todoListArr));
             state.todoList = [...todoListArr];
          }

@@ -37,9 +37,6 @@ export default function MainContent() {
       }
       return item.status === filterStatus;
    });
-   /*console.log('filteredTodoList - ', filteredTodoList)
-   console.log('sortedTodoList - ',sortedTodoList)*/
-   console.log('filterStatus - ', filterStatus)
 
    return (
       <motion.div

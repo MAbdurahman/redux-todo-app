@@ -136,7 +136,9 @@ export default function TodoModal({type, modalOpen, setModalOpen, todo}) {
                         Status
 
                         <ModalSelectButton
-                           onChange={option => setStatus(option)}
+                           id='type'
+                           value={status}
+                           onChange={e => setStatus(e.target.value)}
                         >
                            {options.length > 0 && (options.map(option => (
                                  <option key={option.value} className={styles.option} value={option.value}>{option.label}</option>
