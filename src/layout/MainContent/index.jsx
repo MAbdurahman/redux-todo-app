@@ -26,7 +26,8 @@ export default function MainContent() {
    /*************************** variables ***************************/
    const todoList = useSelector(state => state.todo.todoList);
    const filterStatus = useSelector(state => state.todo.filterStatus);
-   const sortedTodoList = Array.from(todoList);
+   console.log('todoList', todoList);
+   const sortedTodoList = [...todoList];
 
    /*************************** functions ***************************/
    sortedTodoList.sort((a, b) => new Date(b.time) - new Date(a.time));

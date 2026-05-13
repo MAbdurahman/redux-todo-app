@@ -2,6 +2,17 @@
 
 <p>redux-todo-app is a React.js application with the implementation of a Todo App with Redux</p>
 
+## Features
+- useRef
+- useContext
+- custom useHook
+- custom notification
+- react-redux
+- reduxjs/toolkit
+- react-icons
+- style-components
+- custom preloader
+
 ### To install dependencies
 ```shell
 npm install
@@ -29,3 +40,5 @@ or
 ```shell
 yarn build
 ```
+
+<img width="799" height="446" alt="Image" src="https://github.com/user-attachments/assets/68cb6f29-802a-4c37-b762-d9c5046915cf" />

@@ -1,4 +1,4 @@
-import Select from 'react-select';
+
 import {getClasses} from '../../assets/utils/functionsUtils.js';
 import styles from './SelectButton.module.scss';
 

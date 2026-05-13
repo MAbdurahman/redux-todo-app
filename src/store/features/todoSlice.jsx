@@ -1,22 +1,27 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-const getInitialTodos = () => {
-   /******************* get todoList *******************/
-   const localTodoList = window.localStorage.getItem('redux_todoList');
+const getInitialToDoList = () => {
+   /******************* get local toDoList *******************/
+   const localToDoList = window.localStorage.getItem('redux_todoList');
 
-   /*** if not empty, parse todoList to JSON format ***/
-   if (localTodoList) {
-      return JSON.parse(localTodoList);
+   /*** if not empty, parse localToDoList to JSON format ***/
+   if (localToDoList) {
+      return JSON.parse(localToDoList);
    }
    window.localStorage.setItem('redux_todoList', []);
    return [];
 };
 
+console.log('getInitialToDoList func -> ', getInitialToDoList());
 
 const initialTodoState = {
    filterStatus: 'all',
-   todoList: getInitialTodos()
+   todoList: getInitialToDoList(),
 };
+
+
+console.log('initialState -> ', initialTodoState);
+
 
 export const todoSlice = createSlice({
    name: 'todo',
@@ -45,8 +50,9 @@ export const todoSlice = createSlice({
                   todoListArr.splice(index, 1);
                }
             });
-            window.localStorage.setItem('redux_todoList', JSON.stringify({todoListArr}));
+            window.localStorage.setItem('redux_todoList', JSON.stringify(todoListArr));
             state.todoList = todoListArr;
+
          }
       },
       updateTodo: (state, action) => {

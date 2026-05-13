@@ -3,7 +3,6 @@ import {v4 as uuid} from 'uuid';
 import {MdOutlineClose} from 'react-icons/md';
 import {useDispatch} from 'react-redux';
 import {AnimatePresence, motion} from 'framer-motion';
-import SelectButton from '../SelectButton/index.jsx';
 import ModalSelectButton from '../ModalSelectButton/index.jsx';
 import useNotification from '../../assets/hooks/useNotification.jsx';
 import {addTodo, updateTodo} from '../../store/features/todoSlice.jsx';

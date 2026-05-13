@@ -47,10 +47,8 @@ export default function TodoItem({todo}) {
    }
 
    function handleUpdate() {
-      /*dispatch(updateTodo(todo.id));*/
       setUpdateModalOpen(true);
    }
-
 
    return (
       <Fragment>
