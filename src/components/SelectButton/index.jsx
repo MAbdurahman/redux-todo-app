@@ -4,7 +4,6 @@ import styles from './SelectButton.module.scss';
 
 export default function SelectButton({ children, id, ...rest }) {
 
-
    return (
       <select id={id}
               className={getClasses([styles.button, styles.button__select])}

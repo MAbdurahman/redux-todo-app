@@ -12,16 +12,10 @@ const getInitialToDoList = () => {
    return [];
 };
 
-console.log('getInitialToDoList func -> ', getInitialToDoList());
-
 const initialTodoState = {
    filterStatus: 'all',
    todoList: getInitialToDoList(),
 };
-
-
-console.log('initialState -> ', initialTodoState);
-
 
 export const todoSlice = createSlice({
    name: 'todo',

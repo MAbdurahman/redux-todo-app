@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import TodoItem from '../../components/TodoItem/index.jsx';
@@ -26,7 +26,6 @@ export default function MainContent() {
    /*************************** variables ***************************/
    const todoList = useSelector(state => state.todo.todoList);
    const filterStatus = useSelector(state => state.todo.filterStatus);
-   console.log('todoList', todoList);
    const sortedTodoList = [...todoList];
 
    /*************************** functions ***************************/
