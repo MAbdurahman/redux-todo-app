@@ -31,19 +31,16 @@ const customStyles = {
       zIndex: 100,
       padding: 0
    }),
+   singleValue: (provided, state) => ({
+      ...provided,
+      color: 'hsl(196, 0%, 88%)'
+   }),
    menuList: (base) => ({
       ...base,
       //kill the white space on the first and last option
       padding: 0
    })
 }
- /*const options = [
-    {value: 'all', label: 'All ToDos' },
-    {value: 'complete', label: 'Completed' },
-    {value: 'incomplete', label: 'Incomplete' }
-
- ]*/
-
 
 export default function SelectButton({ id, options, styles, value, onChange, ...rest }) {
 

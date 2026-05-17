@@ -11,10 +11,12 @@ const customStyles = {
       textAlign: 'left',
       fontSize: '1.6rem',
       fontWeight: 800,
-      backgroundColor: '#7a7a7a',
+      color: 'hsl(196, 0%, 38%)',
+      backgroundColor: 'hsl(196, 0%, 88%)',
       borderRadius: '5px',
       border: 'none',
       boxShadow: 'none',
+      cursor: 'pointer',
    }),
    option: (provided, state) => ({
       ...provided,
