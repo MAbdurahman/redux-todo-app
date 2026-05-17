@@ -21,21 +21,18 @@ export default function Header() {
    ];
 
    /************************* functions *************************/
-   const updateFilterHandler = e => {
-      setFilterStatus(e.target.value);
-      dispatch(updateFilterStatus(e.target.value));
+   const updateFilterHandler = (filterStatus) => {
+      setFilterStatus(filterStatus.value);
+      dispatch(updateFilterStatus(filterStatus.value));
    }
 
+   console.log('filterStatus', filterStatus);
+   console.log('initialFilterStatus', initialFilterStatus)
 
    return (
       <div className={styles.header}>
-         <SelectButton id='status' value={filterStatus}
-                       onChange={e => updateFilterHandler(e)}
-         >
-            {options.length > 0 && (options.map(option => (
-               <option key={option.value} className={styles.option} value={option.value}>{option.label}</option>
-            )))}
-         </SelectButton>
+         <SelectButton id='status' value={filterStatus.value} options={options} onChange={updateFilterHandler} />
+
          <Button variant='primary' onClick={() => setModalOpen(true)}>
             Add ToDo
          </Button>
