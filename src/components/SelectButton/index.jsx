@@ -33,7 +33,8 @@ const customStyles = {
    }),
    singleValue: (provided, state) => ({
       ...provided,
-      color: 'hsl(196, 0%, 88%)'
+      color: 'hsl(196, 0%, 88%)',
+      cursor: 'pointer',
    }),
    menuList: (base) => ({
       ...base,
