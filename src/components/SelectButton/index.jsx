@@ -15,6 +15,7 @@ const customStyles = {
       borderRadius: '5px',
       border: 'none',
       boxShadow: 'none',
+      cursor: 'pointer'
    }),
    option: (provided, state) => ({
       ...provided,
