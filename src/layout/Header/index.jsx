@@ -26,9 +26,6 @@ export default function Header() {
       dispatch(updateFilterStatus(filterStatus.value));
    }
 
-   console.log('filterStatus', filterStatus);
-   console.log('initialFilterStatus', initialFilterStatus)
-
    return (
       <div className={styles.header}>
          <SelectButton id='status' value={filterStatus.value} options={options} onChange={updateFilterHandler} />
