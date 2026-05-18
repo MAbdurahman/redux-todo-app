@@ -35,7 +35,7 @@ export default function TodoModal({type, modalOpen, setModalOpen, todo}) {
 
    /************************* variables *************************/
    const [title, setTitle] = useState('');
-   const [status, setStatus] = useState('incomplete');
+   const [status, setStatus] = useState('');
    const dispatch = useDispatch();
    const {updateNotification} = useNotification();
 
@@ -136,9 +136,10 @@ export default function TodoModal({type, modalOpen, setModalOpen, todo}) {
 
                         <ModalSelectButton
                            id='type'
-                           value={status.value}
+                           todo={todo}
+                           value={options.find(option => option.value === status)}
                            options={options}
-                           onChange={status => setStatus(status.value)}
+                           onChange={option => setStatus(option.value)}
                         />
 
                      </label>

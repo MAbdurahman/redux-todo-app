@@ -11,6 +11,7 @@ are allowed to create, read, update, delete todo items, and store them in the br
 - custom useHook
 - custom notification
 - react-redux
+- react-select
 - reduxjs/toolkit
 - react-icons
 - Responsive Design
