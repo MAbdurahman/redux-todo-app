@@ -1,6 +1,4 @@
 
-import {getClasses} from '../../assets/utils/functionsUtils.js';
-import styles from './SelectButton.module.scss';
 import Select from 'react-select';
 
 const customStyles = {
@@ -39,14 +37,12 @@ const customStyles = {
    }),
    menuList: (base) => ({
       ...base,
-      //kill the white space on the first and last option
+      //remove the white space on the first and last option
       padding: 0
    })
 }
 
 export default function SelectButton({ id, options, styles, value, onChange, ...rest }) {
-
-
 
    return (
       <Select defaultValue={options[0]} id={id} options={options} styles={customStyles} value={value} onChange={onChange}  rest={rest} />

@@ -1,6 +1,4 @@
 
-import {getClasses} from '../../assets/utils/functionsUtils.js';
-import styles from './ModalSelectButton.module.scss';
 import Select from 'react-select';
 
 const customStyles = {
@@ -35,17 +33,10 @@ const customStyles = {
    }),
    menuList: (base) => ({
       ...base,
-      //kill the white space on the first and last option
+      //remove the white space on the first and last option
       padding: 0
    })
 }
-
-const customOptions = [
-   { value: 'incomplete', label: 'Incomplete' },
-   { value: 'complete', label: 'Completed' }
-];
-
-
 export default function ModalSelectButton({ id, options, styles, value, onChange, ...rest }) {
 
    return (

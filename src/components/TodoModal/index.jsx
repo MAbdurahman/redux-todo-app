@@ -81,7 +81,7 @@ export default function TodoModal({type, modalOpen, setModalOpen, todo}) {
                updateNotification('success', 'ToDo item updated successfully!');
 
             } else {
-               updateNotification('error', 'Click Cancel - Nothing updated!');
+               updateNotification('error', 'Nothing updated - Click Cancel!');
                return;
             }
          }

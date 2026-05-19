@@ -280,7 +280,6 @@ export function capitalizeWords(str) {
    return str.replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
-
 /**
  * capitalizeFirstLetter - capitalize the first letter of a string
  * @param str
@@ -292,10 +291,11 @@ export function capitalizeFirstLetter(str) {
 }
 
 /**
- * Titleize refers to a style of capitalization used for titles, where the first and
- * last words are always capitalized, along with major words like nouns and verbs,
- * while minor words such as articles and short prepositions are typically lowercased.
- *This style is commonly used in titles of books, articles, and other works.
+ *
+ * @description - titleize refers to a style of capitalization used for titles, where
+ * the first and last words are always capitalized, along with major words like nouns
+ * and verbs, while minor words such as articles and short prepositions are typically
+ * lowercased. This style is commonly used in titles of books, articles, and other works.
  *
  * @param str
  */
@@ -316,6 +316,11 @@ export function removeHTMLTags(str) {
    return makeString(str).replace(/<\/?[^>]+>/g, '');
 }
 
+/**
+ * @description -
+ * @param classes
+ * @returns {*}
+ */
 export const getClasses = classes =>
    classes
       .filter(item => item !== '')
