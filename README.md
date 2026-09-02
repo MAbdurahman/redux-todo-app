@@ -46,5 +46,6 @@ or
 ```shell
 yarn build
 ```
+[Live demo](https://redux-todo-app-nu.vercel.app/)
 
 <img width="799" height="446" alt="Image" src="https://github.com/user-attachments/assets/68cb6f29-802a-4c37-b762-d9c5046915cf" />
