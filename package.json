@@ -23,7 +23,7 @@
     "uuid": "^14.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
+    "@babel/core": "8.0.0-rc.6",
     "@eslint/js": "^10.0.1",
     "@rolldown/plugin-babel": "^0.2.3",
     "@types/react": "^19.2.14",
